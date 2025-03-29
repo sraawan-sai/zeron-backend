@@ -1,0 +1,53 @@
+# Exported from Render on 2025-03-29T17:45:59Z
+databases:
+- name: strapidb
+  databaseName: strapidb_k9qv
+  user: strapidb_k9qv_user
+  plan: free
+  region: singapore
+  ipAllowList:
+  - source: 0.0.0.0/0
+    description: everywhere
+  postgresMajorVersion: "16"
+services:
+- type: web
+  name: zeron-backend
+  runtime: node
+  repo: https://github.com/sraawan-sai/zeron-backend
+  branch: develop
+  plan: free
+  envVars:
+  - key: JWT_SECRET
+    sync: false
+  - key: DATABASE_FILENAME
+    sync: false
+  - key: DATABASE_SSL
+    sync: false
+  - key: DATABASE_PASSWORD
+    fromDatabase:
+      name: strapidb
+      property: password
+  - key: DATABASE_USERNAME
+    sync: false
+  - key: DATABASE_NAME
+    sync: false
+  - key: DATABASE_PORT
+    sync: false
+  - key: DATABASE_HOST
+    sync: false
+  - key: DATABASE_CLIENT
+    sync: false
+  - key: TRANSFER_TOKEN_SALT
+    sync: false
+  - key: ADMIN_JWT_SECRET
+    sync: false
+  - key: API_TOKEN_SALT
+    sync: false
+  - key: APP_KEYS
+    sync: false
+  region: singapore
+  buildCommand: 'npm run build '
+  startCommand: npm run start
+  previews:
+    generation: automatic
+version: "1"
