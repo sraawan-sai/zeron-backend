@@ -26,6 +26,12 @@
     },
     "description": {
       "type": "text"
+    },
+    "blogcards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blogcard.blogcard",
+      "mappedBy": "category"
     }
   }
 }

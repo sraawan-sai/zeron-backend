@@ -129,3 +129,11 @@ dist
 build
 .strapi-updater.json
 .strapi-cloud.json
+
+############################
+# backup
+############################
+export.tar.gz.tar.gz.enc
+clean-data.sql
+data.sql
+
